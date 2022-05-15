@@ -33,30 +33,36 @@ function go() {
   if (b == 0) g.innerHTML = "Please choose and reclick";
   else {
     c = Math.floor(Math.random() * 3) + 1;
+    console.log(c);
+    console.log(b);
     if (c != b && d == false) {
-      g.innerHTML = "You lost :(";
-      g.style.cursor = "not-allowed";
-      r.style.cursor = "not-allowed";
-      p.style.cursor = "not-allowed";
-      s.style.cursor = "not-allowed";
-      g.className = "myButto";
-      r.className = "myButto";
-      p.className = "myButto";
-      s.className = "myButto";
-      d = true;
-      document.getElementsByClassName("retry").style.visibility = "visible";
+      if ((c == 1 && b == 2) || (c == 2 && b == 3) || (c == 3 && b == 1)) {
+        g.innerHTML = "Hurray you won!!";
+        g.style.cursor = "not-allowed";
+        r.style.cursor = "not-allowed";
+        p.style.cursor = "not-allowed";
+        s.style.cursor = "not-allowed";
+        g.className = "myButto";
+        r.className = "myButto";
+        p.className = "myButto";
+        s.className = "myButto";
+        d = true;
+      } else {
+        g.innerHTML = "You lost :(";
+        g.style.cursor = "not-allowed";
+        r.style.cursor = "not-allowed";
+        p.style.cursor = "not-allowed";
+        s.style.cursor = "not-allowed";
+        g.className = "myButto";
+        r.className = "myButto";
+        p.className = "myButto";
+        s.className = "myButto";
+        d = true;
+      }
+      document.getElementById("retry").style.visibility = "visible";
     } else if (c == b && d == false) {
-      g.innerHTML = "you won!!!!";
-      g.style.cursor = "not-allowed";
-      r.style.cursor = "not-allowed";
-      p.style.cursor = "not-allowed";
-      s.style.cursor = "not-allowed";
-      g.className = "myButto";
-      r.className = "myButto";
-      p.className = "myButto";
-      s.className = "myButto";
-      d = true;
-      document.getElementsByClassName("retry").style.visibility = "visible";
+      g.innerHTML = "It's a draw, try again!";
+      d = false;
     } else alert("Game ended.");
   }
 }
